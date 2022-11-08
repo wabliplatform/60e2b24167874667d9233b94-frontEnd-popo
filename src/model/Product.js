@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ProductPimage from './ProductPimage';
 
 /**
  * The Product model module.
@@ -22,7 +23,7 @@ class Product {
     /**
      * Constructs a new <code>Product</code>.
      * @alias module:model/Product
-     * @param pimage {String} 
+     * @param pimage {module:model/ProductPimage} 
      * @param ptitle {String} 
      */
     constructor(pimage, ptitle) { 
@@ -55,7 +56,7 @@ class Product {
                 obj['_id'] = ApiClient.convertToType(data['_id'], 'String');
             }
             if (data.hasOwnProperty('pimage')) {
-                obj['pimage'] = ApiClient.convertToType(data['pimage'], 'String');
+                obj['pimage'] = ProductPimage.constructFromObject(data['pimage']);
             }
             if (data.hasOwnProperty('ptitle')) {
                 obj['ptitle'] = ApiClient.convertToType(data['ptitle'], 'String');
@@ -73,7 +74,7 @@ class Product {
 Product.prototype['_id'] = undefined;
 
 /**
- * @member {String} pimage
+ * @member {module:model/ProductPimage} pimage
  */
 Product.prototype['pimage'] = undefined;
 

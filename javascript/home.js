@@ -5,16 +5,16 @@ let apiProductApi = new TempApi.ProductApi();import TempApi from '../src/index';
     if(subDataElements.length > i)
       {
         try { 
-      const insideSubDataElement = subDataElements[i].querySelector("[annotationname = 'pimage']");
-      if(insideSubDataElement !== null){
-        insideSubDataElement.src = data[data.length -i -1].pimage;
-        
-      }
-      else if(subDataElements[i].getAttribute('annotationname') === 'pimage'){
-        subDataElements[i].src = data[data.length -i -1].pimage;
-        
-      }
-     } catch (e) { console.log(e) };try { 
+const insideSubDataElement = subDataElements[i].querySelector("[annotationname = 'pimage']");
+if(insideSubDataElement !== null && data[data.length -i -1].pimage !== undefined){
+  insideSubDataElement.src = data[data.length -i -1].pimage.data;
+  insideSubDataElement.name = data[data.length -i -1].pimage.name;
+}
+else if(subDataElements[i].getAttribute('annotationname') === 'pimage' && data[data.length -i -1].pimage !== undefined){
+  subDataElements[i].src = data[data.length -i -1].pimage.data;
+  subDataElements[i].name = data[data.length -i -1].pimage.name;
+}
+ } catch (e) { console.log(e) };try { 
       const insideSubDataElement = subDataElements[i].querySelector("[annotationname = 'ptitle']");
       if(insideSubDataElement !== null){
         insideSubDataElement.textContent = data[data.length -i -1].ptitle;

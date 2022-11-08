@@ -6,6 +6,7 @@ config.js
 docs/Product.md
 docs/ProductApi.json
 docs/ProductApi.md
+docs/ProductPimage.md
 expressServer.js
 git_push.sh
 index.js
@@ -15,4 +16,5 @@ src/ApiClient.js
 src/api/ProductApi.js
 src/index.js
 src/model/Product.js
+src/model/ProductPimage.js
 webpack.config.js

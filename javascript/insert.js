@@ -69,4 +69,8 @@ document.getElementById('formFile').addEventListener("change", async(e) => {
       };});
 document.getElementById('izg1p').onclick = (event) => {
     event.preventDefault();
-    product['pimage'] = document.querySelector("[annotationname = 'pimage']").value;product['ptitle'] = document.querySelector("[annotationname = 'ptitle']").value;apiProductApi.createproduct( product, (error, data, response) => { if (error) {console.error(error);} else { console.log('API called successfully. Returned data: ' + data); {   location.href= '/home' ;}}});};window.onload = () => {};
+    product['pimage'] = {
+        data: document.querySelector("[annotationname = 'pimage']").getAttribute("data-image-base64") !== null ? document.querySelector("[annotationname = 'pimage']").getAttribute("data-image-base64") : document.querySelector("[annotationname = 'pimage']").src,
+        name: document.querySelector("[annotationname = 'pimage']").getAttribute("name")
+      };
+      product['ptitle'] = document.querySelector("[annotationname = 'ptitle']").value;apiProductApi.createproduct( product, (error, data, response) => { if (error) {console.error(error);} else { console.log('API called successfully. Returned data: ' + data); {   location.href= '/home' ;}}});};window.onload = () => {};
